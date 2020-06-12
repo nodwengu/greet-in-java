@@ -1,13 +1,10 @@
 package net.greet;
 
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.List;
 
 public class Greet {
-//   DataAccess dataAccess = new DataAccess();
-//   List<Person> usersList = dataAccess.getAllUsers();
-   
+
    private void greetUser(String username, String lang) {
       String greeting = null;
       
@@ -24,85 +21,94 @@ public class Greet {
       System.out.println(greeting);
       System.out.println();
    }
-   
-   public Person findByName(String name, List<Person> users) {
-      Person person = null;
-      
-      for (Person user: users) {
-         if (user.getUsername().equals(name))
-            person =  user;
-      }
-      return person;
-   }
   
    public void greet(String username, String lang) {
-   
-      DataAccess dataAccess = new DataAccess();
-      List<Person> usersList = dataAccess.getAllUsers();
+      PersonService personService = new PersonService();
+      Person person = new Person();
+      person.setUsername(username);
       
-      Person user = findByName(username, usersList);
-      
-      if(user != null) {
-         // Just update the userCount variable (update the database)
-         System.out.println(username + " is already saved");
-         greetUser(username, lang);
-         
-         // update the counter for this user
-         user.updateCounter();
-         
-         try {
-            dataAccess.updateGreetCount(user, user.getGreetCount());
-         } catch (Exception e) {
-            System.out.println("Exception in update");
-            e.printStackTrace();
+      try {
+         if(personService.getByName(person.getUsername()) != null){
+            person = personService.getByName(person.getUsername());
+         } else {
+            person = null;
          }
+      } catch (SQLException e) {
+         System.out.println("Message: "  + e.getMessage());
+         e.printStackTrace();
+      }
+      
+      if (person != null) {
+         person.increaseCounter();
+         personService.updateGreetCount(person, person.getGreetCount());
+         greetUser(person.getUsername(), lang);
+         System.out.println("updated person from the storage");
          
       } else {
-         greetUser(username, lang);
-         Person newUser = new Person(username, 1);
-         try {
-            dataAccess.addUser(newUser);
-         } catch (Exception e) {
-            System.out.println("THIS IS UNBELIEVABLE...");
-            e.printStackTrace();
-         }
-         // Adding this person to the users ArrayList
-         usersList.add(newUser);
-         
+         Person user = new Person();
+         user.setUsername(username);
+         personService.add(user);
+         greetUser(user.getUsername(), lang);
+         System.out.println("added new person to the storage");
       }
-      System.out.println();
+   }
+   
+   public void greeted() {
+      try{
+         new PersonService().allGreeted();
+      } catch (SQLException e) {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }
    }
    
    public void greeted(String username) {
-      DataAccess dataAccess = new DataAccess();
-      List<Person> usersList = dataAccess.getAllUsers();
+      PersonService personService = new PersonService();
+      Person person = null;
       
-      Person user = findByName(username, usersList);
-      System.out.println("usersList: " + usersList.size());
-      System.out.println(user.getUsername() + " has been greeted " + user.getGreetCount() + " times.");
-      System.out.println();
+      try {
+         Person newPerson = personService.getByName(username);
+         
+         if(newPerson != null) {
+            person = new Person();
+            person = newPerson;
+         }
+      } catch (SQLException e) {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }
+      
+      System.out.println(person.getUsername() + " has been greeted " + person.getGreetCount() + " times.");
+    
    }
    
    public void counter() {
-      DataAccess dataAccess = new DataAccess();
+      PersonService personService = new PersonService();
+      List<Person> allUsers = null;
+
       try {
-         dataAccess.setArrayList();
+         if(personService.getAll() != null) {
+            allUsers = personService.getAll();
+         }
       } catch (Exception e) {
          e.printStackTrace();
       }
-      List<Person> usersList = dataAccess.getAllUsers();
-      System.out.println(usersList.size() + " users has been greted");
+
+      System.out.println(allUsers.size() + " users has been greeted");
       System.out.println();
    }
    
    public void help() {
-      System.out.println("The most commonly used git commands are:");
-      System.out.println( "greet [username] [language] \t Add file contents to the index \n" +
-              "greeted \t Find by binary search the change that introduced a bug \n" +
-              "counter \t Find by binary search the change that introduced a bug \n" +
-              "clear \t Find by binary search the change that introduced a bug \n" +
-              "exit \t Find by binary search the change that introduced a bug \n" +
-              "help \t Find by binary search the change that introduced a bug \n" );
+      System.out.println(
+              "greet [username] [language] \t Greet a specified user with a given language \n" +
+              "greeted \t Display a list of all users that has been greeted and how many time each user has been greeted \n" +
+              "greeted [username] \t Returns how many times that username have been greeted \n" +
+              "counter \t Returns a count of how many unique users has been greeted \n" +
+              "clear \t Deletes all users greeted and the reset the greet counter to 0 \n" +
+              "clear [username] \t Delete the greet counter for the specified user and decrement the greet counter by 1 \n" +
+              "exit \t Exits the application \n" +
+              "help \t shows a user an overview of all possible commands \n"
+      );
    }
    
    public void exit() {
@@ -111,15 +117,50 @@ public class Greet {
    }
    
    public void clear() {
-      DataAccess dataAccess = new DataAccess();
-      try {
-         dataAccess.delete();
-         System.out.println();
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-      
+      new PersonService().delete();
    }
    
+   // LETS CLEAR THE GREET COUNT BY ONE
+   // SEE WHAT HAPPENS AFTER ZERO (EXCITING)
+   public void clear(String username) {
+      PersonService personService = new PersonService();
+      Person person = null;
+      
+      try{
+         if(personService.getByName(username) != null) {
+            person = personService.getByName(username);
+            
+            if(person.getGreetCount() > 1) {
+               person.decreaseCounter();
+               personService.updateGreetCount(person, person.getGreetCount());
+            } else {
+               personService.remove(person);
+            }
+         }
+      } catch (SQLException e) {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }
+   }
+
    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

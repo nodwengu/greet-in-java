@@ -3,19 +3,12 @@ package net.greet;
 public class Person {
    private String username;
    private int greetCount;
+   private int id;
    
-   public Person() {
-      super();
-   }
-   
-   public Person(String username, int greetCount) {
-      this.username = username;
-      this.greetCount = greetCount;
-   }
-   
-   public void set(String username, int count) {
+   public void set(String username, int count, int id) {
       this.username = username;
       this.greetCount = count;
+      this.id = id;
    }
    
    public void setUsername(String username) {
@@ -26,6 +19,10 @@ public class Person {
       this.greetCount = greetCount;
    }
    
+   public void setId(int id) {
+      this.id = id;
+   }
+   
    public String getUsername() {
       return username;
    }
@@ -34,13 +31,16 @@ public class Person {
       return greetCount;
    }
    
-   public void updateCounter() {
+   public int getId() {
+      return id;
+   }
+   
+   public void increaseCounter() {
       greetCount++;
    }
    
-   @Override
-   public String toString() {
-      return String.format("User [name=%s, counter=%s]", username, greetCount);
+   public void decreaseCounter() {
+      if (greetCount >=  0)
+         greetCount--;
    }
-   
 }
