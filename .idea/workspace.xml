@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe55965a-567d-4d04-8a0d-4a127baf7aa6" name="Default Changelist" comment="" />
+    <list default="true" id="fe55965a-567d-4d04-8a0d-4a127baf7aa6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Database/jdbc_greetings_db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/jdbc_greetings_db.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Database/jdbc_greetings_db.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/jdbc_greetings_db.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/DataAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/DataAccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/DataAccess.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greet.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Person.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +30,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1cmEftupLzkCUO6xkvpNIj0FpDJ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -22,6 +41,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="Greeter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -61,6 +81,10 @@
       <screen x="81" y="24" width="1519" height="876" />
     </state>
     <state x="488" y="254" key="#com.intellij.fileTypes.FileTypeChooser/81.24.1519.876@81.24.1519.876" timestamp="1591482841983" />
+    <state x="445" y="24" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591803478613">
+      <screen x="81" y="24" width="1519" height="876" />
+    </state>
+    <state x="445" y="24" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/81.24.1519.876@81.24.1519.876" timestamp="1591803478613" />
     <state width="1473" height="237" key="GridCell.Tab.0.bottom" timestamp="1591311928745">
       <screen x="81" y="24" width="1519" height="876" />
     </state>
@@ -77,9 +101,9 @@
       <screen x="81" y="24" width="1519" height="876" />
     </state>
     <state width="1473" height="237" key="GridCell.Tab.0.right/81.24.1519.876@81.24.1519.876" timestamp="1591311928715" />
-    <state x="501" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1591609061084">
+    <state x="501" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1591959866622">
       <screen x="81" y="24" width="1519" height="876" />
     </state>
-    <state x="501" y="277" key="com.intellij.ide.util.TipDialog/81.24.1519.876@81.24.1519.876" timestamp="1591609061084" />
+    <state x="501" y="277" key="com.intellij.ide.util.TipDialog/81.24.1519.876@81.24.1519.876" timestamp="1591959866622" />
   </component>
 </project>
