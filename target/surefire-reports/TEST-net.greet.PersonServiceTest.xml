@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="net.greet.GreetTest" time="0.306" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="net.greet.PersonServiceTest" time="2.363" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -17,7 +17,7 @@
     <property name="user.country" value="ZA"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
-    <property name="sun.java.command" value="/home/quirky30/Projects/greet-in-java/target/surefire/surefirebooter7383729996560929106.jar /home/quirky30/Projects/greet-in-java/target/surefire 2020-06-03T23-21-42_642-jvmRun1 surefire5295722355198004991tmp surefire_06870637671778960467tmp"/>
+    <property name="sun.java.command" value="/home/quirky30/Projects/greet-in-java/target/surefire/surefirebooter7011469600365963064.jar /home/quirky30/Projects/greet-in-java/target/surefire 2020-06-13T02-29-49_832-jvmRun1 surefire8669375008408630955tmp surefire_05950369118612831077tmp"/>
     <property name="surefire.test.class.path" value="/home/quirky30/Projects/greet-in-java/target/test-classes:/home/quirky30/Projects/greet-in-java/target/classes:/home/quirky30/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar:/home/quirky30/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/quirky30/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/home/quirky30/.m2/repository/org/junit/platform/junit-platform-commons/1.4.0/junit-platform-commons-1.4.0.jar:/home/quirky30/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.4.0/junit-jupiter-engine-5.4.0.jar:/home/quirky30/.m2/repository/org/junit/platform/junit-platform-engine/1.4.0/junit-platform-engine-1.4.0.jar:/home/quirky30/.m2/repository/com/h2database/h2/1.4.199/h2-1.4.199.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/quirky30"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/quirky30/Projects/greet-in-java/target/surefire/surefirebooter7383729996560929106.jar"/>
+    <property name="surefire.real.class.path" value="/home/quirky30/Projects/greet-in-java/target/surefire/surefirebooter7011469600365963064.jar"/>
     <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_222-8u222-b10-1~14.04-b10"/>
@@ -58,8 +58,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="addDataUserUsingPreparedStatement" classname="net.greet.GreetTest" time="0.295"/>
-  <testcase name="executeSQLStatement" classname="net.greet.GreetTest" time="0.001"/>
-  <testcase name="loadJdbcDriver" classname="net.greet.GreetTest" time="0.001"/>
-  <testcase name="connectToDatabase" classname="net.greet.GreetTest" time="0.001"/>
+  <testcase name="shouldBeAbleToIncreaseGreetCounter" classname="net.greet.PersonServiceTest" time="0.989"/>
+  <testcase name="shouldBeAbleToDecreaseGreetCounter" classname="net.greet.PersonServiceTest" time="0.935"/>
+  <testcase name="shouldBeAbleToRemoveAll" classname="net.greet.PersonServiceTest" time="0.415"/>
+  <testcase name="shouldBeAbleToConnect" classname="net.greet.PersonServiceTest" time="0.002"/>
+  <testcase name="shouldBeAbleToDeleteAUser" classname="net.greet.PersonServiceTest" time="0.001"/>
+  <testcase name="shouldBeAbleToAddNewUser" classname="net.greet.PersonServiceTest" time="0.006"/>
 </testsuite>

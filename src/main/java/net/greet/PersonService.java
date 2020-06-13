@@ -231,8 +231,7 @@ public class PersonService {
    
          preparedStatement = conn.prepareStatement(sql);
          preparedStatement.setString(1, person.getUsername());
-         //ResultSet resultSet = preparedStatement.executeQuery();
-
+    
          preparedStatement.executeUpdate();
    
          conn.close();

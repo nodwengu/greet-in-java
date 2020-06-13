@@ -2,21 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe55965a-567d-4d04-8a0d-4a127baf7aa6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/net/greet/PersonServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Database/jdbc_greetings_db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/jdbc_greetings_db.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Database/jdbc_greetings_db.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/jdbc_greetings_db.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/DataAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/DataAccess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/DataAccess.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greet.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2__add_user.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V2__add_user.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/net/greet/GreetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/greet/GreetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apiguardian-api-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Database/jdbc_greetings_db.mv.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Database/jdbc_greetings_db.trace.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V2__add_user.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db/migration/V2__add_user.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/h2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/greet/Greet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/greet/Greet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/greet/Greeter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/greet/Greeter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/greet/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/greet/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/greet/Samples.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/greet/Samples.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/apiguardian-api-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/db/migration/V1__create_user.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/db/migration/V2__add_user.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/greet-in-java-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/h2-1.4.199.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/jdbc_greet_db.mv.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/jdbc_greet_db.trace.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/junit-jupiter-api-5.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/junit-jupiter-engine-5.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/junit-platform-commons-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/junit-platform-engine-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/opentest4j-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/surefire-reports/TEST-net.greet.GreetTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/surefire-reports/net.greet.GreetTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/test-classes/META-INF/greet-in-java.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/greet-in-java-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/h2-1.4.199.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jdbc_greet_db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/target/jdbc_greet_db.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jdbc_greet_db.trace.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/junit-jupiter-api-5.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/junit-jupiter-engine-5.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/junit-platform-commons-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/junit-platform-engine-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/opentest4j-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-net.greet.GreetTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/net.greet.GreetTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/net/greet/GreetTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +80,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../starting-with-jdbc-koans" />
   </component>
   <component name="RunManager">
     <configuration name="Greeter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -85,6 +124,10 @@
       <screen x="81" y="24" width="1519" height="876" />
     </state>
     <state x="445" y="24" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/81.24.1519.876@81.24.1519.876" timestamp="1591803478613" />
+    <state x="628" y="207" key="FileChooserDialogImpl" timestamp="1591977389501">
+      <screen x="81" y="24" width="1519" height="876" />
+    </state>
+    <state x="628" y="207" key="FileChooserDialogImpl/81.24.1519.876@81.24.1519.876" timestamp="1591977389501" />
     <state width="1473" height="237" key="GridCell.Tab.0.bottom" timestamp="1591311928745">
       <screen x="81" y="24" width="1519" height="876" />
     </state>
@@ -101,9 +144,13 @@
       <screen x="81" y="24" width="1519" height="876" />
     </state>
     <state width="1473" height="237" key="GridCell.Tab.0.right/81.24.1519.876@81.24.1519.876" timestamp="1591311928715" />
-    <state x="501" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1591959866622">
+    <state x="501" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1591999543018">
       <screen x="81" y="24" width="1519" height="876" />
     </state>
-    <state x="501" y="277" key="com.intellij.ide.util.TipDialog/81.24.1519.876@81.24.1519.876" timestamp="1591959866622" />
+    <state x="501" y="277" key="com.intellij.ide.util.TipDialog/81.24.1519.876@81.24.1519.876" timestamp="1591999543018" />
+    <state x="503" y="191" width="672" height="678" key="search.everywhere.popup" timestamp="1591996508136">
+      <screen x="81" y="24" width="1519" height="876" />
+    </state>
+    <state x="503" y="191" width="672" height="678" key="search.everywhere.popup/81.24.1519.876@81.24.1519.876" timestamp="1591996508136" />
   </component>
 </project>

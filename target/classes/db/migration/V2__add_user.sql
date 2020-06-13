@@ -1,9 +1,10 @@
- create table user2 (
+create table user (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    name varchar(40),
+    username varchar(20),
+    greetCount double
 );
 
-insert into user2 (name) values ("Thando");
-insert into user2 (name) values ("Linathi");
-insert into user2 (name) values ("Masimbonge");
-insert into user2 (name) values ("Liyema");
+insert into user (username, greetCount) values ('thando', 4);
+insert into user (username, greetCount) values ('james', 3);
+insert into user (username, greetCount) values ('kiro', 2);
+insert into user (username, greetCount) values ('zan', 1);
