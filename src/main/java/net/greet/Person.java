@@ -5,12 +5,6 @@ public class Person {
    private int greetCount;
    private int id;
    
-   public void set(String username, int count, int id) {
-      this.username = username;
-      this.greetCount = count;
-      this.id = id;
-   }
-   
    public void setUsername(String username) {
       this.username = username;
    }
