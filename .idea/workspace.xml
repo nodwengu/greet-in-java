@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe55965a-567d-4d04-8a0d-4a127baf7aa6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/net/greet/PersonTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Database/jdbc_greetings_db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/Database/jdbc_greetings_db.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Database/jdbc_greetings_db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/jdbc_greetings_db.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greet.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Language.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/net/greet/GreetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/greet/GreetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/net/greet/PersonServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/greet/GreetingsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -75,13 +75,13 @@ public class Greeter {
       //System.out.println();
    
       if( command.equals("greet") && username != null && language != null ) {
-         System.out.println("greet followed by the name and the language the user is to be greeted in");
-         System.out.println();
+         //System.out.println("greet followed by the name and the language the user is to be greeted in");
+//         System.out.println();
          greet.greet(username, language);
       
       } else if( command.equalsIgnoreCase("greeted") && username != null && language == null ){
          //System.out.println("greeted followed by a username returns how many times that username have been greeted");
-         greet.greeted(username);
+         System.out.println( greet.greeted(username) );
          System.out.println();
       
       } else if( command.equalsIgnoreCase("greeted") && username == null && language == null ) {
@@ -91,7 +91,8 @@ public class Greeter {
       
       } else if( command.equalsIgnoreCase("counter") && username == null && language == null ) {
          // System.out.println("Count of how many unique users has been greeted,");
-         greet.counter();
+         System.out.println( greet.counter() );
+         System.out.println();
       
       } else if( command.equalsIgnoreCase("clear") && username == null && language == null ) {
          System.out.println("clear deletes of all users greeted and the reset the greet counter to 0");

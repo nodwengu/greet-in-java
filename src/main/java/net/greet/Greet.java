@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Greet {
 
-   private void greetUser(String username, String lang) {
+   public String greetUser(String username, String lang) {
       String greeting = null;
       
       if(lang.equalsIgnoreCase("english")) {
@@ -18,8 +18,10 @@ public class Greet {
          System.out.println("Invalid language");
          System.out.println();
       }
-      System.out.println(greeting);
-      System.out.println();
+//      System.out.println(greeting);
+//      System.out.println();
+      
+      return greeting;
    }
   
    public void greet(String username, String lang) {
@@ -41,15 +43,19 @@ public class Greet {
       if (person != null) {
          person.increaseCounter();
          personService.updateGreetCount(person, person.getGreetCount());
-         greetUser(person.getUsername(), lang);
-         System.out.println("updated person from the storage");
+         System.out.println( greetUser(person.getUsername(), lang) );
+         System.out.println();
+//         System.out.println("updated person from the storage");
+//         System.out.println();
          
       } else {
          Person user = new Person();
          user.setUsername(username);
          personService.add(user);
-         greetUser(user.getUsername(), lang);
-         System.out.println("added new person to the storage");
+         System.out.println( greetUser(person.getUsername(), lang) );
+         System.out.println();
+//         System.out.println("added new person to the storage");
+//         System.out.println();
       }
    }
    
@@ -62,7 +68,7 @@ public class Greet {
       }
    }
    
-   public void greeted(String username) {
+   public String greeted(String username) {
       PersonService personService = new PersonService();
       Person person = null;
       
@@ -78,11 +84,11 @@ public class Greet {
          e.printStackTrace();
       }
       
-      System.out.println(person.getUsername() + " has been greeted " + person.getGreetCount() + " times.");
+      return  (person.getUsername() + " has been greeted " + person.getGreetCount() + " times.");
     
    }
    
-   public void counter() {
+   public String counter() {
       PersonService personService = new PersonService();
       List<Person> allUsers = null;
 
@@ -94,8 +100,8 @@ public class Greet {
          e.printStackTrace();
       }
 
-      System.out.println(allUsers.size() + " users has been greeted");
-      System.out.println();
+      return (allUsers.size() + " users has been greeted");
+     
    }
    
    public void help() {
@@ -142,8 +148,6 @@ public class Greet {
          e.printStackTrace();
       }
    }
-
-   
 }
 
 
