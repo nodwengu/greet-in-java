@@ -110,8 +110,7 @@ public class PersonService {
    
    public void updateGreetCount (Person person, int count)  {
       Connection conn = null;
-      Statement stmt = null;
-      
+     
       try {
          conn = DriverManager.getConnection(DB_URL, USER, PASS);
          
@@ -171,6 +170,7 @@ public class PersonService {
             person.setId(resultSet.getInt("id"));
             personList.add(person);
          }
+         conn.close();
          
       } catch (SQLException e ) {
          System.out.println("Exception from greeted method");
