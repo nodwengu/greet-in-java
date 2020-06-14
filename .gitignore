@@ -3,6 +3,7 @@
 /target/
 */target/
 */.jar
+/Database
 
 # Eclipse generated files.
 .settings
