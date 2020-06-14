@@ -47,7 +47,7 @@ public class GreetingsTest {
          assertEquals(3, personService.getAll().size());
 
       } catch (SQLException e) {
-         e.printStackTrace();
+         System.out.println(e.getMessage());
          System.out.println("shouldBeAbleToAddNewUser");
       }
    }
@@ -73,7 +73,7 @@ public class GreetingsTest {
          assertEquals(2, person.getGreetCount());
 
       } catch (SQLException e) {
-         e.printStackTrace();
+         System.out.println(e.getMessage());
          System.out.println("shouldBeAbleToIncreaseGreetCounter");
       }
    }
@@ -98,8 +98,8 @@ public class GreetingsTest {
 
       } catch (SQLException e) {
          System.out.println(e.getMessage());
-         e.printStackTrace();
-      } finally { }
+         System.out.println("shouldBeAbleToDecreaseGreetCounter");
+      }
    }
 
    @Test
@@ -116,8 +116,8 @@ public class GreetingsTest {
          assertEquals(2, personService.getAll().size());
          
       } catch (SQLException e) {
-         e.printStackTrace();
-         System.out.println("shouldBeAbleToRemoveAll");
+         System.out.println(e.getMessage());
+         System.out.println("shouldBeAbleToRemoveUser");
       }
    }
    
@@ -134,12 +134,12 @@ public class GreetingsTest {
          assertEquals(3, personService.getAll().size());
          
       } catch (SQLException e) {
-         e.printStackTrace();
-         System.out.println("shouldBeAbleToRemoveAll");
+         System.out.println(e.getMessage());
+         System.out.println("shouldBeAbleToReturnUserByName");
       }
    }
 
-//   @Test
+
 //   public void shouldBeAbleToGreetByLanguage() {
 //      personService = new PersonService();
 //      greet = new Greet();
@@ -155,7 +155,7 @@ public class GreetingsTest {
 
 
 
-//   @Test
+
 //   public void shouldBeAbleToGreetInXhos() {
 //      personService = new PersonService();
 //      greet = new Greet();

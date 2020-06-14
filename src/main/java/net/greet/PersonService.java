@@ -19,13 +19,13 @@ public class PersonService {
       } catch (ClassNotFoundException e) {
          System.out.println("H2 JDBC Driver not found !!");
       }
-   
-      String sql =  "CREATE TABLE IF NOT EXISTS user" +
-              "(id INT PRIMARY KEY AUTO_INCREMENT, " +
-              " username VARCHAR(255), " +
-              " greetCount INT)";
       
       try {
+         String sql =  "CREATE TABLE IF NOT EXISTS user" +
+                 "(id INT PRIMARY KEY AUTO_INCREMENT, " +
+                 " username VARCHAR(255), " +
+                 " greetCount INT)";
+         
          conn = DriverManager.getConnection(DB_URL, USER, PASS);;
          
          stmt = conn.createStatement();
