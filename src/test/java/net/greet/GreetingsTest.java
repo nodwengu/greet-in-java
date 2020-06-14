@@ -12,16 +12,16 @@ public class GreetingsTest {
    
    @Test
    public void connect() {
-      personService = new PersonService();
+      personService = null;
 
       try {
+         personService = new PersonService();
          personService.connectToDatabase();
+         personService.delete();
+         
       } catch (Exception e) {
          e.printStackTrace();
       }
-
-      personService = new PersonService();
-      personService.delete();
    }
    
    @Test
@@ -64,7 +64,7 @@ public class GreetingsTest {
 
       try {
          person = personService.getByName("thando");
-         // personService.allGreeted();
+        
          assertEquals(1, person.getGreetCount());
 
          person.increaseCounter();
