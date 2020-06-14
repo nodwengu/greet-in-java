@@ -1,5 +1,5 @@
 package net.greet;
-;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.sql.*;
@@ -81,7 +81,7 @@ public class GreetingsTest {
    @Test
    public void shouldBeAbleToDecreaseGreetCounter() {
       personService = new PersonService();
-      Person person = new Person();
+      Person person = null;
 
       try {
          person = personService.getByName("thando");
@@ -105,13 +105,12 @@ public class GreetingsTest {
    @Test
    public void shouldBeAbleToRemoveUser() {
       personService = new PersonService();
-      Person person = new Person();
+      Person person = null;
 
       try {
-         person = personService.getByName("jola");
-         
          assertEquals(3, personService.getAll().size());
          
+         person = personService.getByName("jola");
          personService.remove(person);
    
          assertEquals(2, personService.getAll().size());
@@ -125,11 +124,11 @@ public class GreetingsTest {
    @Test
    public void shouldBeAbleToReturnUserByName() {
       personService = new PersonService();
-      Person person = new Person();
+      Person person = null;
       
       try {
          person = personService.getByName("james");
-         personService.allGreeted();
+         // personService.allGreeted();
          assertEquals("james", person.getUsername());
          
          assertEquals(3, personService.getAll().size());
@@ -139,29 +138,23 @@ public class GreetingsTest {
          System.out.println("shouldBeAbleToRemoveAll");
       }
    }
+
+   @Test
+   public void shouldBeAbleToGreetByLanguage() {
+      personService = new PersonService();
+      greet = new Greet();
+      Person person = null;
+      
+      assertEquals("Mholo thando", greet.greetUser("tTanDo", "Xhosa"));
    
-//   @Test
-//   public void test() {
-//      personService = new PersonService();
-//      greet = new Greet();
-//
-//      try {
-//         personService.allGreeted();
-//      } catch (SQLException e) {
-//         e.printStackTrace();
-//      }
-//
-//      greet.greet("thando", "xhosa");
-//      greet.greet("thando", "xhosa");
-//
-//      try {
-//         personService.allGreeted();
-//      } catch (SQLException e) {
-//         e.printStackTrace();
-//      }
-//
-//   }
+      //assertEquals("Mholo thando", greet.greetUser("thando", "afrikaans"));
    
+      //assertEquals("Mholo thando", greet.greetUser("thando", "english"));
+      
+   }
+
+
+
 //   @Test
 //   public void shouldBeAbleToGreetInXhos() {
 //      personService = new PersonService();

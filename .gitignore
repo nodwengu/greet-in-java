@@ -2,6 +2,7 @@
 # Ignore only folders named target in root dir and direct child dirs.
 /target/
 */target/
+*/.jar
 
 # Eclipse generated files.
 .settings

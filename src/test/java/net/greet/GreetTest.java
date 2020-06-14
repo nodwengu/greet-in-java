@@ -39,43 +39,8 @@
 ////      }
 ////   }
 //
-//
-//   @Test
-//   public void shouldBeAbleToGreetInXhosa() {
-//      personService = new PersonService();
-//      greet = new Greet();
-//      Person person = null;
-//
-//      String greeting = greet.greetUser("thando", "xhosa");
-//
-//      assertEquals("Mholo thando",  greeting);
-//
-//      try {
-//         personService.allGreeted();
-//      } catch(SQLException e) {
-//         e.printStackTrace();
-//      }
-//
-//
-//   }
-//
-////   @Test
-////   public void shouldBeAbleToGreetInAfrikaans() {
-////      personService = new PersonService();
-////      greet = new Greet();
-////      Person person = null;
-////
-////      try {
-////         person = personService.getByName("thando");
-////         String greeting = greet.greetUser(person.getUsername(), "afrikaans");
-////
-////         assertEquals("Goe more thando",  greeting);
-////
-////      } catch (SQLException e) {
-////         e.printStackTrace();
-////      }
-////   }
-////
+
+
 ////   @Test
 ////   public void shouldBeAbleToGreetInEnglish() {
 ////      personService = new PersonService();
