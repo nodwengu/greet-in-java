@@ -176,7 +176,7 @@ public class PersonService {
       PreparedStatement preparedStatement = null;
       Person person = null;
 
-      String sql = "select * from user where username=?";
+      String sql = "select id, username, greetCount from user where username=?";
 
       try {
          conn = DriverManager.getConnection(DB_URL, USER, PASS);

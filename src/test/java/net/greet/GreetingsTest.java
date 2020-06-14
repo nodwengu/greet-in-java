@@ -12,10 +12,9 @@ public class GreetingsTest {
    
    @Test
    public void connect() {
-      personService = null;
+      personService = new PersonService();
 
       try {
-         personService = new PersonService();
          personService.connectToDatabase();
          personService.delete();
          
