@@ -4,6 +4,7 @@
 */target/
 */.jar
 /Database
+*/.class
 
 # Eclipse generated files.
 .settings
