@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Greet {
 
-   public String greetUser(String username, String lang) {
+   public void greetUser(String username, String lang) {
       String greeting = null;
       
       if(lang.equalsIgnoreCase("english")) {
@@ -18,50 +18,51 @@ public class Greet {
          System.out.println("Invalid language");
          System.out.println();
       }
-//      System.out.println(greeting);
-//      System.out.println();
-      
-      return greeting;
+      //System.out.println(greeting);
+      System.out.println("\u001B[32m" + greeting + "\u001B[0m");
    }
   
    public void greet(String username, String lang) {
+      username = username.toLowerCase();
+      username = username.substring(0, 1).toUpperCase() + username.substring(1);
+      
       PersonService personService = new PersonService();
-      Person person = new Person();
-      person.setUsername(username);
+      Person person = null;
       
       try {
-         if(personService.getByName(person.getUsername()) != null){
-            person = personService.getByName(person.getUsername());
+         if(personService.getByName(username) != null){
+            person = personService.getByName(username);
+            person.increaseCounter();
+            
+            personService.updateGreetCount(person, person.getGreetCount());
+            //System.out.println("\u001B[32m" + "Table updated Successful! " + "\u001B[0m");
+            
+            greetUser(person.getUsername(), lang);
+            System.out.println();
+
          } else {
-            person = null;
+            person = new Person();
+            person.setUsername(username);
+            personService.add(person);
+            greetUser(person.getUsername(), lang);
+            System.out.println();
+//         System.out.println("added new person to the storage");
+//         System.out.println();
+         
          }
       } catch (SQLException e) {
          System.out.println("Message: "  + e.getMessage());
          e.printStackTrace();
       }
-      
-      if (person != null) {
-         person.increaseCounter();
-         personService.updateGreetCount(person, person.getGreetCount());
-         System.out.println( greetUser(person.getUsername(), lang) );
-         System.out.println();
-//         System.out.println("updated person from the storage");
-//         System.out.println();
-         
-      } else {
-         Person user = new Person();
-         user.setUsername(username);
-         personService.add(user);
-         System.out.println( greetUser(person.getUsername(), lang) );
-         System.out.println();
-//         System.out.println("added new person to the storage");
-//         System.out.println();
-      }
    }
    
    public void greeted() {
+      PersonService personService = null;
+      
       try{
-         new PersonService().allGreeted();
+         personService = new PersonService();
+         personService.allGreeted();
+         
       } catch (SQLException e) {
          System.out.println(e.getMessage());
          e.printStackTrace();
@@ -69,28 +70,32 @@ public class Greet {
    }
    
    public String greeted(String username) {
+      username = username.toLowerCase();
+      username = username.substring(0, 1).toUpperCase() + username.substring(1);
+      
       PersonService personService = new PersonService();
       Person person = null;
+      String msg = null;
       
       try {
-         Person newPerson = personService.getByName(username);
-         
-         if(newPerson != null) {
-            person = new Person();
-            person = newPerson;
+         if(personService.getByName(username) != null) {
+            person = personService.getByName(username);
          }
+         
       } catch (SQLException e) {
          System.out.println(e.getMessage());
          e.printStackTrace();
       }
       
-      return  (person.getUsername() + " has been greeted " + person.getGreetCount() + " times.");
-    
+      msg = "\u001B[32m" + person.getUsername() + " has been greeted " + person.getGreetCount() + " times." + "\u001B[0m";
+      
+      return  msg;
    }
    
    public String counter() {
       PersonService personService = new PersonService();
       List<Person> allUsers = null;
+      String msg = null;
 
       try {
          if(personService.getAll() != null) {
@@ -99,9 +104,10 @@ public class Greet {
       } catch (Exception e) {
          e.printStackTrace();
       }
-
-      return (allUsers.size() + " users has been greeted");
-     
+      
+      msg = "\u001B[32m" + (allUsers.size() + " users has been greeted") + "\u001B[0m";
+      
+      return msg;
    }
    
    public void help() {
@@ -118,17 +124,34 @@ public class Greet {
    }
    
    public void exit() {
+      System.out.println("\u001B[32m" + "Goodbye! " + "\u001B[0m");
       System.out.println();
       System.exit(0);
    }
    
    public void clear() {
-      new PersonService().delete();
+      PersonService personService = null;
+      
+      try {
+         personService = new PersonService();
+         
+         if (personService.getAll().size() != 0) {
+            personService.delete();
+            System.out.println("\u001B[32m" + "Successfully removed all users! " + "\u001B[0m");
+            
+         } else {
+            System.out.println("\u001B[32m" + "No data! " + "\u001B[0m");
+         }
+        
+      } catch (SQLException e) {
+         e.printStackTrace();
+      }
    }
    
-   // LETS CLEAR THE GREET COUNT BY ONE
-   // SEE WHAT HAPPENS AFTER ZERO (EXCITING)
    public void clear(String username) {
+      username = username.toLowerCase();
+      username = username.substring(0, 1).toUpperCase() + username.substring(1);
+      
       PersonService personService = new PersonService();
       Person person = null;
       
@@ -139,8 +162,10 @@ public class Greet {
             if(person.getGreetCount() > 1) {
                person.decreaseCounter();
                personService.updateGreetCount(person, person.getGreetCount());
+               System.out.println("\u001B[32m" + "updated greet count for " + person.getUsername()  + "\u001B[0m");
             } else {
                personService.remove(person);
+               System.out.println("\u001B[32m" + "Successfully removed " + person.getUsername()  + "\u001B[0m");
             }
          }
       } catch (SQLException e) {

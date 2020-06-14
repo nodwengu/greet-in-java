@@ -139,19 +139,19 @@ public class GreetingsTest {
       }
    }
 
-   @Test
-   public void shouldBeAbleToGreetByLanguage() {
-      personService = new PersonService();
-      greet = new Greet();
-      Person person = null;
-      
-      assertEquals("Mholo thando", greet.greetUser("tTanDo", "Xhosa"));
-   
-      //assertEquals("Mholo thando", greet.greetUser("thando", "afrikaans"));
-   
-      //assertEquals("Mholo thando", greet.greetUser("thando", "english"));
-      
-   }
+//   @Test
+//   public void shouldBeAbleToGreetByLanguage() {
+//      personService = new PersonService();
+//      greet = new Greet();
+//      Person person = null;
+//
+//      assertEquals("Mholo thando", greet.greetUser("thando", "Xhosa"));
+//
+//      //assertEquals("Mholo thando", greet.greetUser("thando", "afrikaans"));
+//
+//      //assertEquals("Mholo thando", greet.greetUser("thando", "english"));
+//
+//   }
 
 
 

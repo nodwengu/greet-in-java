@@ -12,7 +12,7 @@ public class Greeter {
       PersonService personService = new PersonService();
    
       personService.connectToDatabase();
-      greet.greeted();
+      //greet.greeted();
      
       System.out.print("Enter a command or help for more commands$$ ");
       input = scanner.nextLine().split(" ");
@@ -79,40 +79,41 @@ public class Greeter {
 //         System.out.println();
          greet.greet(username, language);
       
-      } else if( command.equalsIgnoreCase("greeted") && username != null && language == null ){
+      } else if( command.equals("greeted") && username != null && language == null ){
          //System.out.println("greeted followed by a username returns how many times that username have been greeted");
          System.out.println( greet.greeted(username) );
          System.out.println();
       
-      } else if( command.equalsIgnoreCase("greeted") && username == null && language == null ) {
-         System.out.println("greeted should display a list of all users that has been greeted and how many time each user has been greeted,");
+      } else if( command.equals("greeted") && username == null && language == null ) {
+         //System.out.println("greeted should display a list of all users that has been greeted and how many time each user has been greeted,");
          System.out.println();
          greet.greeted();
       
-      } else if( command.equalsIgnoreCase("counter") && username == null && language == null ) {
+      } else if( command.equals("counter") && username == null && language == null ) {
          // System.out.println("Count of how many unique users has been greeted,");
          System.out.println( greet.counter() );
          System.out.println();
       
-      } else if( command.equalsIgnoreCase("clear") && username == null && language == null ) {
-         System.out.println("clear deletes of all users greeted and the reset the greet counter to 0");
+      } else if( command.equals("clear") && username == null && language == null ) {
+         //System.out.println("clear deletes of all users greeted and the reset the greet counter to 0");
          greet.clear();
+         System.out.println();
       
-      } else if( command.equalsIgnoreCase("clear") && username != null && language == null ) {
-         System.out.println("clear followed by a username delete the greet counter for the specified user and decrement the greet counter by 1");
+      } else if( command.equals("clear") && username != null && language == null ) {
+         //System.out.println("clear followed by a username delete the greet counter for the specified user and decrement the greet counter by 1");
          greet.clear(username);
+         System.out.println();
       
-      } else if( command.equalsIgnoreCase("exit") && username == null && language == null ) {
-         System.out.println("exit exits the application");
+      } else if( command.equals("exit") && username == null && language == null ) {
+         //System.out.println("exit exits the application");
          greet.exit();
       
-      } else if( command.equalsIgnoreCase("help") && username == null && language == null ) {
+      } else if( command.equals("help") && username == null && language == null ) {
          System.out.println("Overview of all possible commands: ");
          System.out.println();
          greet.help();
       
-      }
-      else {
+      } else {
          System.out.println(command + ": command not found");
          System.out.println();
       
