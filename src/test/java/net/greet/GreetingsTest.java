@@ -7,12 +7,12 @@ import java.sql.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GreetingsTest {
-   private PersonService personService = null;
+   //private PersonService personService = null;
    private Greet greet = null;
    
    @Test
    public void connect() {
-      personService = new PersonService();
+      PersonService personService = new PersonService();
 
       try {
          personService.connectToDatabase();
@@ -25,7 +25,7 @@ public class GreetingsTest {
    
    @Test
    public void shouldBeAbleToAddNewUser() {
-      personService = new PersonService();
+      PersonService personService = new PersonService();
       Person p1 = null, p2 = null, p3 = null;
 
       p1 = new Person();
@@ -53,7 +53,7 @@ public class GreetingsTest {
    
    @Test
    public void shouldBeAbleToIncreaseGreetCounter() {
-      personService = new PersonService();
+      PersonService personService = new PersonService();
       Person person = null;
 //      try {
 //         personService.allGreeted();
@@ -79,7 +79,7 @@ public class GreetingsTest {
    
    @Test
    public void shouldBeAbleToDecreaseGreetCounter() {
-      personService = new PersonService();
+      PersonService personService = new PersonService();
       Person person = null;
 
       try {
@@ -103,7 +103,7 @@ public class GreetingsTest {
 
    @Test
    public void shouldBeAbleToRemoveUser() {
-      personService = new PersonService();
+      PersonService personService = new PersonService();
       Person person = null;
 
       try {
@@ -122,7 +122,7 @@ public class GreetingsTest {
    
    @Test
    public void shouldBeAbleToReturnUserByName() {
-      personService = new PersonService();
+      PersonService personService = new PersonService();
       Person person = null;
       
       try {
