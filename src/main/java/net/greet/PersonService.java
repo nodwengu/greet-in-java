@@ -185,7 +185,7 @@ public class PersonService {
          preparedStatement.setString(1, name);
          ResultSet resultSet = preparedStatement.executeQuery();
 
-         if (resultSet.next()) {
+         while (resultSet.next()) {
             person = new Person();
 
             person.setUsername(resultSet.getString("username"));
