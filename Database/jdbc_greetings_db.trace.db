@@ -1,0 +1,12 @@
+2020-06-14 14:45:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+select * from user where username=? [42102-199]
+2020-06-14 14:45:18 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+select * from user where username=? [42102-199]
+2020-06-14 14:45:18 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+select * from user where username=? [42102-199]
+2020-06-14 14:45:18 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+SELECT id, username, greetCount FROM user [42102-199]
