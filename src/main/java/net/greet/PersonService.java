@@ -19,19 +19,19 @@ public class PersonService {
       } catch (ClassNotFoundException e) {
          System.out.println("H2 JDBC Driver not found !!");
       }
+   
+      String sql =  "CREATE TABLE IF NOT EXISTS user" +
+              "(id INT PRIMARY KEY AUTO_INCREMENT, " +
+              " username VARCHAR(255), " +
+              " greetCount INT)";
       
       try {
-         String sql =  "CREATE TABLE IF NOT EXISTS user" +
-                 "(id INT PRIMARY KEY AUTO_INCREMENT, " +
-                 " username VARCHAR(255), " +
-                 " greetCount INT)";
-         
-         conn = DriverManager.getConnection(DB_URL, USER, PASS);;
+         conn = DriverManager.getConnection(DB_URL, USER, PASS);
          
          stmt = conn.createStatement();
          stmt.executeUpdate(sql);
-         
-         System.out.println("\u001B[32m" + "Connection with database established Successful! " + "\u001B[0m");
+         System.out.println("\u001B[32m" + "Connection established Successful! " + "\u001B[0m");
+         System.out.println();
         
       } catch (SQLException e) {
          e.printStackTrace();
@@ -42,6 +42,7 @@ public class PersonService {
    
    public void allGreeted() throws SQLException {
       List<Person> personList = new ArrayList<>();
+      String results = "";
    
       String sql = "SELECT id, username, greetCount FROM user";
       
@@ -49,8 +50,6 @@ public class PersonService {
          conn = DriverManager.getConnection(DB_URL, USER, PASS);
          stmt = conn.createStatement();
          ResultSet resultSet = stmt.executeQuery(sql);
-         
-         String results = "";
          
          while (resultSet.next()) {
             Person user = new Person();
@@ -61,14 +60,12 @@ public class PersonService {
             
             personList.add(user);
             
-            results +=  "NAME: " + user.getUsername() + "\tCOUNT: " + user.getGreetCount() + "\tID: " + user.getId() + "\n";
+            results +=  "Name: " + user.getUsername() + "\tCount: " + user.getGreetCount() + "\tID: " + user.getId() + "\n";
          }
         
          if(personList.size() > 0) {
-            // System.out.println(results);
             System.out.println("\u001B[32m" + results + "\u001B[0m");
          } else {
-            //System.out.println("No data.......");
             System.out.println("\u001B[32m" + "No data.." + "\u001B[0m");
             System.out.println();
          }
@@ -76,7 +73,6 @@ public class PersonService {
          resultSet.close();
         
       } catch (SQLException e ) {
-         System.out.println("Exception from greeted method");
          e.printStackTrace();
       } finally {
          closeConnectionAndStatement(stmt, conn);
@@ -86,12 +82,12 @@ public class PersonService {
    public void add(Person person) throws SQLException {
       PreparedStatement preparedStatement = null;
    
+      String sql = "INSERT INTO user (username, greetCount) VALUES (?, ?)";
+   
       try {
          conn = DriverManager.getConnection(DB_URL, USER, PASS);
          
-         String INSERT_USER_SQL = "insert into user (username, greetCount) values (?, ?)";
-         
-         preparedStatement = conn.prepareStatement(INSERT_USER_SQL);
+         preparedStatement = conn.prepareStatement(sql);
          
          preparedStatement.setString(1, person.getUsername());
          preparedStatement.setInt(2, 1);
@@ -104,25 +100,25 @@ public class PersonService {
       }
    }
    
-   public void updateGreetCount (Person person, int count) throws SQLException {
+   public void updateGreetCount(Person person, int count) throws SQLException {
+      PreparedStatement preparedStatement = null;
+      
+      String sql = "UPDATE user SET greetCount=? WHERE username=?";
+      
       try {
          conn = DriverManager.getConnection(DB_URL, USER, PASS);
          
-         String UPDATE_USER_SQL = "UPDATE user SET greetCount = ? WHERE username = ?";
+         preparedStatement = conn.prepareStatement(sql);
          
-         PreparedStatement updateUserPreparedStatement = conn.prepareStatement(UPDATE_USER_SQL);
+         preparedStatement.setInt(1, count);
+         preparedStatement.setString(2, person.getUsername());
+         preparedStatement.execute();
          
-         updateUserPreparedStatement.setInt(1, count);
-         updateUserPreparedStatement.setString(2, person.getUsername());
-         updateUserPreparedStatement.execute();
-         
-        
-      } catch (SQLException se) {
-         se.printStackTrace();
+      } catch (SQLException e) {
+         e.printStackTrace();
       } finally {
          closeConnectionAndStatement(stmt, conn);
       }
-      
    }
    
    public void delete() throws SQLException {
@@ -143,7 +139,7 @@ public class PersonService {
    
    public List<Person> getAll() throws SQLException {
       List<Person> personList = new ArrayList<>();
-      
+     
       String sql = "SELECT id, username, greetCount FROM user";
    
       try {
@@ -152,8 +148,6 @@ public class PersonService {
          stmt = conn.createStatement();
          ResultSet resultSet = stmt.executeQuery(sql);
       
-         String results = "";
-      
          while (resultSet.next()) {
             Person person = new Person();
             person.setUsername(resultSet.getString("username"));
@@ -161,9 +155,7 @@ public class PersonService {
             person.setId(resultSet.getInt("id"));
             personList.add(person);
          }
-         
       } catch (SQLException e ) {
-         System.out.println("Exception from greeted method");
          e.printStackTrace();
       } finally {
          closeConnectionAndStatement(stmt, conn);
@@ -176,7 +168,7 @@ public class PersonService {
       PreparedStatement preparedStatement = null;
       Person person = null;
 
-      String sql = "select id, username, greetCount from user where username=?";
+      String sql = "SELECT id, username, greetCount FROM user WHERE username=?";
 
       try {
          conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -192,9 +184,7 @@ public class PersonService {
             person.setGreetCount(resultSet.getInt("greetCount"));
             person.setId(resultSet.getInt("id"));
          }
-
       } catch (SQLException e ) {
-         System.out.println("Exception from getByName method");
          e.printStackTrace();
       } finally {
          closeConnectionAndStatement(stmt, conn);
@@ -207,10 +197,9 @@ public class PersonService {
    public void remove(Person person) throws SQLException {
       PreparedStatement preparedStatement = null;
      
-      String sql = "delete from user WHERE username=?";
+      String sql = "DELETE FROM user WHERE username=?";
 
       try {
-   
          conn = DriverManager.getConnection(DB_URL, USER, PASS);
    
          preparedStatement = conn.prepareStatement(sql);
@@ -223,7 +212,6 @@ public class PersonService {
       } finally {
          closeConnectionAndStatement(stmt, conn);
       }
-      
    }
    
    public void closeConnectionAndStatement(Statement statement, Connection connection) throws SQLException {

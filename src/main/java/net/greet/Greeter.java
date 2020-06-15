@@ -109,7 +109,7 @@ public class Greeter {
          greet.exit();
       
       } else if( command.equals("help") && username == null && language == null ) {
-         System.out.println("Overview of all possible commands: ");
+//         System.out.println("Overview of all possible commands: ");
          System.out.println();
          greet.help();
       

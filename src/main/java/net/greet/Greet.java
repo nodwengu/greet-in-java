@@ -112,14 +112,14 @@ public class Greet {
    
    public void help() {
       System.out.println(
-              "greet [username] [language] \t Greet a specified user with a given language \n" +
-              "greeted \t Display a list of all users that has been greeted and how many time each user has been greeted \n" +
-              "greeted [username] \t Returns how many times that username have been greeted \n" +
-              "counter \t Returns a count of how many unique users has been greeted \n" +
-              "clear \t Deletes all users greeted and the reset the greet counter to 0 \n" +
-              "clear [username] \t Delete the greet counter for the specified user and decrement the greet counter by 1 \n" +
-              "exit \t Exits the application \n" +
-              "help \t shows a user an overview of all possible commands \n"
+              "\u001B[32m" + "greet " + "\u001B[0m" + "[username] [language] \t Greet a specified user with a given language \n" +
+                      "\u001B[32m" + "greeted " + "\u001B[0m" + "\t \t \t Display a list of all users that has been greeted and how many time each user has been greeted \n" +
+                      "\u001B[32m" + "greeted " + "\u001B[0m" + "[username] \t \t Returns how many times that username have been greeted \n" +
+                      "\u001B[32m" + "counter " + "\u001B[0m" + "\t \t \t Returns a count of how many unique users has been greeted \n" +
+                      "\u001B[32m" + "clear " + "\u001B[0m" + "\t \t \t \t Deletes all users greeted and the reset the greet counter to 0 \n" +
+                      "\u001B[32m" + "clear " + "\u001B[0m" + "[username] \t \t Delete the greet counter for the specified user and decrement the greet counter by 1 \n" +
+                      "\u001B[32m" + "exit " + "\u001B[0m" + "\t \t \t \t Exits the application \n" +
+                      "\u001B[32m" + "help " + "\u001B[0m" + "\t \t \t \t shows a user an overview of all possible commands \n"
       );
    }
    
