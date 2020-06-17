@@ -15,6 +15,7 @@ public class Greet {
       } else if (lang.equalsIgnoreCase("afrikaans")) {
          greeting = "Goe more " + username;
       } else {
+         greeting = "Hello " + username;
          System.out.println("Invalid language");
          System.out.println();
       }
@@ -158,15 +159,18 @@ public class Greet {
       try{
          if(personService.getByName(username) != null) {
             person = personService.getByName(username);
+   
+            personService.remove(person);
+            System.out.println("\u001B[32m" + "Successfully removed " + person.getUsername()  + "\u001B[0m");
             
-            if(person.getGreetCount() > 1) {
-               person.decreaseCounter();
-               personService.updateGreetCount(person, person.getGreetCount());
-               System.out.println("\u001B[32m" + "updated greet count for " + person.getUsername()  + "\u001B[0m");
-            } else {
-               personService.remove(person);
-               System.out.println("\u001B[32m" + "Successfully removed " + person.getUsername()  + "\u001B[0m");
-            }
+//            if(person.getGreetCount() > 1) {
+//               person.decreaseCounter();
+//               personService.updateGreetCount(person, person.getGreetCount());
+//               System.out.println("\u001B[32m" + "updated greet count for " + person.getUsername()  + "\u001B[0m");
+//            } else {
+//               personService.remove(person);
+//               System.out.println("\u001B[32m" + "Successfully removed " + person.getUsername()  + "\u001B[0m");
+//            }
          }
       } catch (SQLException e) {
          System.out.println(e.getMessage());
