@@ -80,8 +80,7 @@ public class Greeter {
          greet.greet(username, language);
       
       } else if (command.equals("greet") && username != null && language == null){
-         System.out.println("PLEASE PROVIDE DEFAULT LANGUAGE");
-         System.out.println();
+         greet.greet(username, language);
          
       } else if( command.equals("greeted") && username != null && language == null ){
          //System.out.println("greeted followed by a username returns how many times that username have been greeted");

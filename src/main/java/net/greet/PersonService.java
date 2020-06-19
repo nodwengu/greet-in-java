@@ -13,7 +13,7 @@ public class PersonService {
    Connection conn = null;
    Statement stmt = null;
    
-   public void connectToDatabase() throws SQLException {
+   public void connectToDatabase() {
       try {
          Class.forName(JDBC_DRIVER);
       } catch (ClassNotFoundException e) {
@@ -40,7 +40,7 @@ public class PersonService {
       }
    }
    
-   public void allGreeted() throws SQLException {
+   public void allGreeted() {
       List<Person> personList = new ArrayList<>();
       String results = "";
    
@@ -79,7 +79,7 @@ public class PersonService {
       }
    }
    
-   public void add(Person person) throws SQLException {
+   public void add(Person person) {
       PreparedStatement preparedStatement = null;
    
       String sql = "INSERT INTO user (username, greetCount) VALUES (?, ?)";
@@ -100,7 +100,7 @@ public class PersonService {
       }
    }
    
-   public void updateGreetCount(Person person, int count) throws SQLException {
+   public void updateGreetCount(Person person, int count) {
       PreparedStatement preparedStatement = null;
       
       String sql = "UPDATE user SET greetCount=? WHERE username=?";
@@ -121,7 +121,7 @@ public class PersonService {
       }
    }
    
-   public void delete() throws SQLException {
+   public void delete() {
       try {
          conn = DriverManager.getConnection(DB_URL, USER, PASS);
          String selectSql = "DELETE FROM user";
@@ -137,7 +137,7 @@ public class PersonService {
    }
 
    
-   public List<Person> getAll() throws SQLException {
+   public List<Person> getAll() {
       List<Person> personList = new ArrayList<>();
      
       String sql = "SELECT id, username, greetCount FROM user";
@@ -164,7 +164,7 @@ public class PersonService {
       return personList;
    }
   
-   public Person getByName(String name) throws SQLException {
+   public Person getByName(String name) {
       PreparedStatement preparedStatement = null;
       Person person = null;
 
@@ -194,7 +194,7 @@ public class PersonService {
    }
    
    
-   public void remove(Person person) throws SQLException {
+   public void remove(Person person) {
       PreparedStatement preparedStatement = null;
      
       String sql = "DELETE FROM user WHERE username=?";
@@ -214,11 +214,18 @@ public class PersonService {
       }
    }
    
-   public void closeConnectionAndStatement(Statement statement, Connection connection) throws SQLException {
-      if(statement != null)
-         statement.close();
-      if(connection != null)
-         connection.close();
+   public void closeConnectionAndStatement(Statement statement, Connection connection) {
+      try {
+         if(statement != null)
+            statement.close();
+         if(connection != null)
+            connection.close();
+         
+      } catch (SQLException e) {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }
+      
    }
 
 
