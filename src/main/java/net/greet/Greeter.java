@@ -1,6 +1,5 @@
 package net.greet;
 import net.greet.exceptions.CommandNotFoundException;
-import net.greet.exceptions.InputRequiredException;
 import net.greet.exceptions.InvalidInputLengthException;
 import net.greet.exceptions.UserNotFoundException;
 
