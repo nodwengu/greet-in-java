@@ -1,5 +1,7 @@
 package net.greet;
 
+import net.greet.exceptions.UserNotFoundException;
+
 import java.util.List;
 
 public class Greet {
@@ -51,7 +53,7 @@ public class Greet {
       personService.allGreeted();
    }
    
-   public String greeted(String username) {
+   public String greeted(String username) throws UserNotFoundException {
       username = username.toLowerCase();
       username = username.substring(0, 1).toUpperCase() + username.substring(1);
       
@@ -59,8 +61,13 @@ public class Greet {
       Person person = null;
       String msg = null;
    
-      if(personService.getByName(username) != null)
+      if(personService.getByName(username) != null) {
          person = personService.getByName(username);
+         
+      } else {
+         String message = "\u001B[32m" + "Username does not exists" + "\u001B[0m";
+         throw new UserNotFoundException(message);
+      }
       
       msg = "\u001B[32m" + person.getUsername() + " has been greeted " + person.getGreetCount() + " times." + "\u001B[0m";
       
@@ -113,7 +120,7 @@ public class Greet {
       }
    }
    
-   public void clear(String username) {
+   public void clear(String username) throws UserNotFoundException {
       username = username.toLowerCase();
       username = username.substring(0, 1).toUpperCase() + username.substring(1);
       
@@ -121,9 +128,15 @@ public class Greet {
       Person person = null;
    
       person = personService.getByName(username);
-   
-      personService.remove(person);
-      System.out.println("\u001B[32m" + "Successfully removed " + person.getUsername()  + "\u001B[0m");
+      
+      if (person != null) {
+         personService.remove(person);
+         System.out.println("\u001B[32m" + "Successfully removed " + person.getUsername()  + "\u001B[0m");
+      } else {
+         String message = "\u001B[32m" + "Username does not exists \n" + "\u001B[0m";
+         throw new UserNotFoundException(message);
+      }
+      
    }
 }
 

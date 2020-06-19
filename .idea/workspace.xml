@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="541478a0-0c2a-4733-b436-624d02bb7d40" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/greet/exceptions/CommandNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/greet/exceptions/InputRequiredException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/greet/exceptions/InvalidInputLengthException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/jdbc_greetings_db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/Database/jdbc_greetings_db.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/net/greet/GreetingsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/greet/GreetingsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Database/jdbc_greetings_db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/jdbc_greetings_db.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greet.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Languange.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Languange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/PersonService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
