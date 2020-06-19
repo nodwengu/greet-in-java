@@ -9,10 +9,12 @@ public class Greet {
    public void greetUser(String username, String lang) {
       Languange[] languanges = Languange.values();
       lang = lang.toUpperCase();
-      
+     
       for (Languange languange: languanges) {
-         if (languange.toString().equals(lang))
+         if (languange.toString().equals(lang)) {
             System.out.println("\u001B[32m" + languange.getGreet() + username + "\u001B[0m");
+            break;
+         }
       }
    }
   
