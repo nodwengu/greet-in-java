@@ -1,142 +1,71 @@
 package net.greet;
-import net.greet.exceptions.CommandNotFoundException;
-import net.greet.exceptions.InputRequiredException;
-import net.greet.exceptions.InvalidInputLengthException;
-import net.greet.exceptions.UserNotFoundException;
+import net.greet.commands.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Greeter {
-   public static void main(String[] args){
-      try {
-         inputData();
-      } catch (InvalidInputLengthException e) {
-         System.out.println(e);
-      } catch (InputRequiredException e) {
-         System.out.println(e);
-      }
-   }
-   
-   public static void inputData() throws InvalidInputLengthException, InputRequiredException {
+   public static void main(String[] args) {
       Scanner scanner = new Scanner(System.in);
-      String[] input = new String[3];
-      String command = null, username = null, language = null;
-      System.out.println();
-   
-      Greet greet = new Greet();
-      PersonService personService = new PersonService();
-   
-      personService.connectToDatabase();
-   
+      String username = null, language = null;
+      
       System.out.print("Enter a command or help for more commands$$ ");
-      input = scanner.nextLine().split(" ");
+      String inputString = scanner.nextLine();
       
-      if( (input.length == 1) && (input[0].length() == 0) ) {
-         String msg = "\u001B[32m" + "Input is required \n" + "\u001B[0m";
-         throw new InputRequiredException(msg);
+      String[] input = inputString.split(" ");
       
-      } else if(input.length == 3) {
-         command = input[0];
+      if (input.length == 2) {
+         username = input[1];
+         language = null;
+      } else if (input.length == 3) {
          username = input[1];
          language = input[2];
-      
-      } else if(input.length == 1) {
-         command = input[0];
-      
-      } else if(input.length == 2) {
-         command = input[0];
-         username = input[1];
-      
-      } else if(input.length > 3){
-         String message = "\u001B[32m" + "Invalid input length \n" + "\u001B[0m";
-         throw new InvalidInputLengthException(message);
       }
-   
-      while ( !command.equalsIgnoreCase("c") ) {
-         try {
-            executeGreetCommand(command, username, language);
-            
-         } catch (CommandNotFoundException e) {
-            System.out.println(e);
-         }
       
-         command = null;
-         username =null;
-         language = null;
+      // setup
+      Map<String, Command> commandMap = new HashMap<String, Command>();
       
-         System.out.print("Enter a command or help for more commands$$ ");
-         input = scanner.nextLine().split(" ");
-   
-         if( (input.length == 1) && (input[0].length() == 0) ) {
-            String msg = "\u001B[32m" + "Input is required \n" + "\u001B[0m";
-            throw new InputRequiredException(msg);
+      commandMap.put("greet", new GreetCommand());
+      commandMap.put("greet " + username, new GreetCommand());
+      commandMap.put("greet " + username + " " + language, new GreetCommand());
+      commandMap.put("greeted", new GreetedCommand());
+      commandMap.put("greeted " + username, new GreetedCommand());
+      commandMap.put("counter", new CounterCommand());
+      commandMap.put("help", new HelpCommand());
+      commandMap.put("exit", new ExitCommand());
+      commandMap.put("clear " + username, new ClearCommand());
+      commandMap.put("clear", new ClearCommand());
       
-         } else if(input.length == 3) {
-            command = input[0];
+      while ( !inputString.equalsIgnoreCase("c") ) {
+         Context context = new Context(inputString);
+         Command command = commandMap.get(context.getCommandEntered());
+         command.execute(context);
+         //String result = command.execute(context);
+         //System.out.println("Result: " + result);
+         
+         System.out.print("Enter a command: ");
+         inputString = scanner.nextLine();
+         input = inputString.split(" ");
+         
+         if (input.length == 2) {
+            username = input[1];
+            language = null;
+         } else if (input.length == 3) {
             username = input[1];
             language = input[2];
-         
-         } else if(input.length == 1) {
-            command = input[0];
-         
-         } else if(input.length == 2) {
-            command = input[0];
-            username = input[1];
-         
-         } else if(input.length > 3){
-            String message = "\u001B[32m" + "Invalid input length \n" + "\u001B[0m";
-            throw new InvalidInputLengthException(message);
          }
-      }
-   }
-   
-   static void executeGreetCommand(String command, String username, String language) throws CommandNotFoundException {
-      Greet greet = new Greet();
-     
-      if( command.equals("greet") && username != null && language != null ) {
-         greet.greet(username, language);
          
-      } else if (command.equals("greet") && username != null && language == null){
-         greet.greet(username, language);
-         
-      } else if( command.equals("greeted") && username != null && language == null ){
-         try {
-            System.out.println( greet.greeted(username) );
-            System.out.println();
-         } catch (UserNotFoundException e) {
-            System.out.println(e);
-            System.out.println();
-         }
-      } else if( command.equals("greeted") && username == null && language == null ) {
-         System.out.println();
-         greet.greeted();
-      
-      } else if( command.equals("counter") && username == null && language == null ) {
-         System.out.println( greet.counter() );
-         System.out.println();
-      
-      } else if( command.equals("clear") && username == null && language == null ) {
-         greet.clear();
-         System.out.println();
-      
-      } else if( command.equals("clear") && username != null && language == null ) {
-        try {
-           greet.clear(username);
-           System.out.println();
-        } catch (UserNotFoundException e) {
-           System.out.println(e);
-        }
-        
-      } else if( command.equals("exit") && username == null && language == null ) {
-         greet.exit();
-      
-      } else if( command.equals("help") && username == null && language == null ) {
-         System.out.println();
-         greet.help();
-      
-      }  else {
-         String message = "\u001B[32m" + "Command not found \n" + "\u001B[0m";
-         throw new CommandNotFoundException(message);
+         commandMap.put("greet", new GreetCommand());
+         commandMap.put("greet " + username, new GreetCommand());
+         commandMap.put("greet " + username + " "+ language, new GreetCommand());
+         commandMap.put("greeted", new GreetedCommand());
+         commandMap.put("greeted " + username, new GreetedCommand());
+         commandMap.put("counter", new CounterCommand());
+         commandMap.put("help", new HelpCommand());
+         commandMap.put("exit", new ExitCommand());
+         commandMap.put("clear " + username, new ClearCommand());
+         commandMap.put("clear", new ClearCommand());
       }
    }
    
