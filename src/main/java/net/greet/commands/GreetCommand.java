@@ -2,30 +2,30 @@ package net.greet.commands;
 
 import net.greet.Context;
 import net.greet.Greet;
+import net.greet.exceptions.CommandNotFoundException;
+import net.greet.exceptions.InvalidLanguageException;
 
 public class GreetCommand implements Command {
-   Greet greet = new Greet();
    
    @Override
-   public String execute(Context context) {
-      String username = null, language = null;
-      String[] input = context.getCommandEntered().split(" ");
+   public String execute(Context context) throws CommandNotFoundException, InvalidLanguageException {
+      Greet greet = new Greet();
       
-      if (input.length == 2) {
-         username = input[1];
-         language = null;
-         greet.greet(username, language);
-         
-      } else if (input.length == 3) {
-         username = input[1];
-         language = input[2];
-         greet.greet(username, language);
-
-      } else if (input.length == 1) {
-         System.out.println("EXCEPTION EXCEPTION EXCEPTION");
+      String[] input = context.getInputString().split(" ");
+      
+      try {
+         if (input.length == 2) {
+            greet.greet(context.getUsername(), context.getLanguage());
+         } else if (input.length == 3) {
+            greet.greet(context.getUsername(), context.getLanguage());
+         } else {
+            throw new CommandNotFoundException("Command Not Found");
+         }
+      } catch (InvalidLanguageException e) {
+         System.out.println("\u001B[32m" + e + "\u001B[0m");
+         System.out.println();
       }
       
-      return context.getCommandEntered();
+      return context.getInputString();
    }
-   
 }

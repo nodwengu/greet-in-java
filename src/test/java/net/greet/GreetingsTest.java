@@ -52,29 +52,28 @@ public class GreetingsTest {
       assertEquals(2, person.getGreetCount());
    }
    
-   @Test
-   public void shouldBeAbleToDecreaseGreetCounter() {
-      PersonService personService = new PersonService();
-      Person person = null;
-   
-      person = personService.getByName("thando");
-   
-      person.increaseCounter();
-      personService.updateGreetCount(person, person.getGreetCount());
-   
-      assertEquals(3, person.getGreetCount());
-   
-      person.decreaseCounter();
-      personService.updateGreetCount(person, person.getGreetCount());
-   
-      assertEquals(2, person.getGreetCount());
-   }
+//   @Test
+//   public void shouldBeAbleToDecreaseGreetCounter() {
+//      PersonService personService = new PersonService();
+//      Person person = null;
+//   
+//      person = personService.getByName("thando");
+//
+//      person.increaseCounter();
+//      personService.updateGreetCount(person, person.getGreetCount());
+//
+//      assertEquals(3, person.getGreetCount());
+//
+//      person.decreaseCounter();
+//      personService.updateGreetCount(person, person.getGreetCount());
+//
+//      assertEquals(2, person.getGreetCount());
+//   }
 
    @Test
    public void shouldBeAbleToRemoveUser() {
       PersonService personService = new PersonService();
       Person person = null;
-   
       assertEquals(3, personService.getAll().size());
    
       person = personService.getByName("jola");

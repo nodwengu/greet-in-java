@@ -1,5 +1,6 @@
 package net.greet;
 
+import net.greet.exceptions.InvalidLanguageException;
 import net.greet.exceptions.UserNotFoundException;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class Greet {
       }
    }
   
-   public void greet(String username, String lang) {
+   public void greet(String username, String lang) throws InvalidLanguageException {
       username = username.toLowerCase();
       username = username.substring(0, 1).toUpperCase() + username.substring(1);
       
@@ -28,8 +29,19 @@ public class Greet {
       if (lang == null) {
          lang = Languange.ENGLISH.toString();
       }
+      
+      boolean validLanguage = lang.equalsIgnoreCase(Languange.ENGLISH.toString()) ||
+                        lang.equalsIgnoreCase(Languange.XHOSA.toString()) ||
+                        lang.equalsIgnoreCase(Languange.AFRIKAANS.toString()) ||
+                        lang.equalsIgnoreCase(Languange.ZULU.toString());
+      
+      System.out.println(validLanguage);
+      
+      if (!validLanguage) {
+         throw new InvalidLanguageException("Language not found");
+      }
    
-      if(personService.getByName(username) != null){
+      if(personService.getByName(username) != null && validLanguage){
          person = personService.getByName(username);
          person.increaseCounter();
       
