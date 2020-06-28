@@ -28,9 +28,9 @@ public class Greeter {
          try {
             Context context = new Context(inputString);
             Command command = commandMap.get(context.getCommand());
-            if (command == null) {
+            
+            if (command == null)
                throw new InputRequiredException("Invalid input: Exception");
-            }
            
             String result = command.execute(context);
            // System.out.println("Result: " + result);
