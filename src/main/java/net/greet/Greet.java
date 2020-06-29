@@ -35,8 +35,6 @@ public class Greet {
                         lang.equalsIgnoreCase(Languange.AFRIKAANS.toString()) ||
                         lang.equalsIgnoreCase(Languange.ZULU.toString());
       
-      System.out.println(validLanguage);
-      
       if (!validLanguage) {
          throw new InvalidLanguageException("Language not found");
       }
@@ -79,7 +77,7 @@ public class Greet {
          person = personService.getByName(username);
          
       } else {
-         String message = "\u001B[32m" + "Username does not exists" + "\u001B[0m";
+         String message = "\u001B[32m" + "name does not exists" + "\u001B[0m";
          throw new UserNotFoundException(message);
       }
       

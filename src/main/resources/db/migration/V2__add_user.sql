@@ -4,7 +4,7 @@ create table user (
     greetCount double
 );
 
-insert into user (username, greetCount) values ('thando', 4);
-insert into user (username, greetCount) values ('james', 3);
-insert into user (username, greetCount) values ('kiro', 2);
-insert into user (username, greetCount) values ('zan', 1);
+insert into user (username, greetCount) values ('Thando', 4);
+insert into user (username, greetCount) values ('James', 3);
+insert into user (username, greetCount) values ('Kiro', 2);
+insert into user (username, greetCount) values ('Zan', 1);
